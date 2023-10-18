@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import React from "react";
-import { Navbar } from ".";
+import { Navbar, Footer } from ".";
 
 const WelcomePage = () => {
   <Navbar />;
   return (
-    <div>
+    <div className="relative">
       <Navbar />
       <div className="flex justify-center mt-[150px] mb-[50px] 2xl:mt-[40px] lg:mt-[25px] md:mt-[10px] sm:mt-[10px] 2xl:mb-[40px] lg:mb-[30px] md:mb-[10px] sm:mb-[10px]">
         <p className="text-blue-700 font-kanit text-4xl font-semibold">
@@ -22,9 +22,8 @@ const WelcomePage = () => {
           />
           Your browser does not support the video tag.
         </video>
-
-
       </div>
+      <Footer />
     </div>
   )
 };
