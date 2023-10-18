@@ -9,12 +9,12 @@ const WelcomePage = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex justify-center mt-[150px] mb-[50px]">
+      <div className="flex justify-center mt-[150px] mb-[50px] 2xl:mt-[150px] lg:mt-[25px] lg:mb-[20px]">
         <p className="text-blue-700 font-kanit text-4xl font-semibold">
           แบบทดสอบความรู้
         </p>
       </div>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center m-auto">
         <video width="1280" height="720" controls poster="/PosterVideo.png">
           <source
             src="/video/Vi1.mp4"
