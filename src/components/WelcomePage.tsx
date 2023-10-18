@@ -14,7 +14,7 @@ const WelcomePage = () => {
           แบบทดสอบความรู้
         </p>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center items-center">
         <video width="1280" height="720" controls poster="/PosterVideo.png">
           <source
             src="/video/Vi1.mp4"
