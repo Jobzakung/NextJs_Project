@@ -21,7 +21,7 @@
     "eslint": "latest",
     "eslint-config-next": "latest",
     "postcss": "latest",
-    "tailwindcss": "^3.3.3",
+    "tailwindcss": "^3.4.1",
     "typescript": "latest"
   }
 }
