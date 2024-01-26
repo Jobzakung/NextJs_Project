@@ -1,0 +1,8 @@
+body {
+    background-color: #000;
+}
+
+.video-wrapper {
+    transform: rotateY(calc(var(--i)* 45deg)) translateZ(450px);
+    -webkit-box-reflect: below 0px linear-gradient(transparent, #0004);
+}

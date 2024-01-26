@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
-import { Navbar, Footer } from ".";
+import { Navbar, Footer } from "..";
 
 const WelcomePage = () => {
   <Navbar />;

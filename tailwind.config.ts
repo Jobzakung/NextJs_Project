@@ -7,8 +7,30 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {
-      fontFamily:{
+    extend: 
+    {
+      rotate:{
+        '30': '30deg',
+        '45': '45deg',
+        '60': '60deg',
+        '225': '225deg',
+      },
+      width:{
+        "165per": '165%',
+      },
+      height: {
+        "10v": "10vh",
+        "20v": "20vh",
+        "30v": "30vh",
+        "40v": "40vh",
+        "50v": "50vh",
+        "60v": "60vh",
+        "70v": "70vh",
+        "80v": "80vh",
+        "90v": "90vh",
+        "100v": "100vh",
+      },
+      fontFamily: {
         'kanit': ['kanit', 'sans-serif']
       },
       backgroundImage: {
@@ -18,6 +40,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-3d'),
+
+  ],
 }
 export default config
