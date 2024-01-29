@@ -9,6 +9,9 @@ const config: Config = {
   theme: {
     extend: 
     {
+      translate:{
+
+      },
       rotate:{
         '30': '30deg',
         '45': '45deg',
@@ -17,8 +20,15 @@ const config: Config = {
       },
       width:{
         "165per": '165%',
+        "15px": '15px',
+        "60px": '60px',
+        "200px": '200px',
       },
       height: {
+        "1px": "1px",
+        "15px": "15px",
+        "60px": "60px",
+        "200px": "200px",
         "10v": "10vh",
         "20v": "20vh",
         "30v": "30vh",
@@ -29,6 +39,27 @@ const config: Config = {
         "80v": "80vh",
         "90v": "90vh",
         "100v": "100vh",
+      },
+      top:{
+
+      },
+      left:{
+
+      },
+      right:{
+
+      },
+      gap:{
+        "10px" : "10px",
+        "20px" : "20px",
+        "30px" : "30px",
+        "40px" : "40px",
+        "50px" : "50px",
+        "60px" : "60px",
+        "70px" : "70px",
+        "80px" : "80px",
+        "90px" : "90px",
+        "100px" : "100px",
       },
       fontFamily: {
         'kanit': ['kanit', 'sans-serif']
@@ -42,6 +73,7 @@ const config: Config = {
   },
   plugins: [
     require('tailwindcss-3d'),
+    require('autoprefixer'),
 
   ],
 }
