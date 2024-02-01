@@ -9,9 +9,6 @@ const config: Config = {
   theme: {
     extend: 
     {
-      translate:{
-
-      },
       rotate:{
         '30': '30deg',
         '45': '45deg',
@@ -29,6 +26,7 @@ const config: Config = {
         "15px": "15px",
         "60px": "60px",
         "200px": "200px",
+        "700px": "700px",
         "10v": "10vh",
         "20v": "20vh",
         "30v": "30vh",
@@ -41,13 +39,26 @@ const config: Config = {
         "100v": "100vh",
       },
       top:{
+        "10px": "10px",
+        "20px": "20px",
+        "30px": "30px",
+        "40px": "40px",
+        "50px": "50px",
+        "60px": "60px",
+        "70px": "70px",
+        "700px": "700px",
 
       },
       left:{
+        "700px": "700px",
 
       },
       right:{
+        "700px": "700px",
 
+      },
+      bottom:{
+        "700px": "700px",
       },
       gap:{
         "10px" : "10px",
@@ -62,13 +73,20 @@ const config: Config = {
         "100px" : "100px",
       },
       fontFamily: {
-        'kanit': ['kanit', 'sans-serif']
+        'kanit': ['kanit', 'sans-serif'],
+        'Arapey': ['Arapey', 'sans-serif'],
+        'inter': ['inter', 'sans-serif'],
+        'Alegreya-Sans-SC': ['Alegreya Sans SC', 'sans-serif']
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'dog-bg': "url('/image/Dog.svg')"
       },
+      colors:{
+        'beige_bg': '#F5EEE6',
+        'blue_button':'86B6F6'
+      }
     },
   },
   plugins: [
