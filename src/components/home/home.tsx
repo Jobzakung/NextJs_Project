@@ -32,27 +32,25 @@ const home = () => {
 
 
     const videos = [
-        { id: 0, src: "/video/Vi1.mp4", poster: "/PosterVideo.png" },
-        { id: 1, src: "/video/Vi1.mp4", poster: "/PosterVideo.png" },
-        { id: 2, src: "/video/testing.mp4", poster: "/PosterVideo.png" },// can't play video
-        { id: 3, src: "/video/testing.mp4", poster: "/PosterVideo.png" },
-        { id: 4, src: "/video/Vi1.mp4", poster: "/PosterVideo.png" },
-        // { id: 5, src: "/video/Vi1.mp4", poster: "/PosterVideo.png" },
-        // { id: 6, src: "/video/Vi1.mp4", poster: "/PosterVideo.png" },// can't play video
-        // { id: 7, src: "/video/Vi1.mp4", poster: "/PosterVideo.png" },
-        // { id: 8, src: "/video/Vi1.mp4", poster: "/PosterVideo.png" },
-        // { id: 9, src: "/video/Vi1.mp4", poster: "/PosterVideo.png" },
-        // { id: 10, src: "/video/Vi1.mp4", poster: "/PosterVideo.png" },
+        { id: 0, src: "/video/Vi1.mp4", poster: "/image/PosterVideo.png" },
+        { id: 1, src: "/video/Vi1.mp4", poster: "/image/PosterVideo.png" },
+        { id: 2, src: "/video/testing.mp4", poster: "/image/PosterVideo.png" },// can't play video
+        { id: 3, src: "/video/testing.mp4", poster: "/image/PosterVideo.png" },
+        { id: 4, src: "/video/Vi1.mp4", poster: "/image/PosterVideo.png" },
+        // { id: 5, src: "/video/Vi1.mp4", poster: "/image/PosterVideo.png" },
+        // { id: 6, src: "/video/Vi1.mp4", poster: "/image/PosterVideo.png" },// can't play video
+        // { id: 7, src: "/video/Vi1.mp4", poster: "/image/PosterVideo.png" },
+        // { id: 8, src: "/video/Vi1.mp4", poster: "/image/PosterVideo.png" },
+        // { id: 9, src: "/video/Vi1.mp4", poster: "/image/PosterVideo.png" },
+        // { id: 10, src: "/video/Vi1.mp4", poster: "/image/PosterVideo.png" },
 
     ];
     return (
-            <div className="flex justify-center items-center min-h-screen relative bg-cover"
-            >                
+            <div className="flex justify-center items-center min-h-screen relative bg-cover">                
             <div
                 className="relative w-[150px] h-200px duration-1000 transform-style-3d"
                 style={{ transform: `perspective(1000px) rotateY(${degrees}deg)` } as React.CSSProperties} 
-                
-            >
+                >
                     {videos.map((video) => (
                         <div
                             className="absolute top-0 left-0 h-full w-165per origin-center transform-style-3d overflow-hidden gap-30px"
