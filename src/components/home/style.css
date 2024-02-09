@@ -1,0 +1,22 @@
+.video-container{
+    transform: rotateY(calc(var(--i) * 35deg)) translateZ(500px);
+    -webkit-box-reflect: below 0px linear-gradient(transparent, #0004);
+
+    @media screen and (min-width: 375px) and (max-width: 767px){
+        transform: rotateY(calc(var(--i) * 35deg)) translateZ(200px);
+        margin-left: calc(var(--i) * 20px);
+
+    }
+    @media screen and (min-width: 768px){
+        transform: rotateY(calc(var(--i) * 35deg)) translateZ(300px);
+
+    }
+    @media screen and (min-width: 1280px){
+        transform: rotateY(calc(var(--i) * 35deg)) translateZ(400px);
+
+    }
+    @media screen and (min-width: 1536px){
+        transform: rotateY(calc(var(--i) * 35deg)) translateZ(550px);
+
+    }
+}

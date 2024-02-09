@@ -8,7 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: 
-    {
+    { 
+      screens:{
+        'sm-phone': '320px',
+        'md-phone': '375px',
+        'lg-phone': '425px',
+      },
       rotate:{
         '30': '30deg',
         '45': '45deg',
@@ -16,9 +21,11 @@ const config: Config = {
         '225': '225deg',
       },
       width:{
-        "165per": '165%',
+        "100%": "100%",
+        "165%": '165%',
         "15px": '15px',
         "60px": '60px',
+        "150px": '150px',
         "200px": '200px',
       },
       height: {
@@ -47,6 +54,7 @@ const config: Config = {
         "60px": "60px",
         "70px": "70px",
         "700px": "700px",
+        "100%": "100%"
 
       },
       left:{
