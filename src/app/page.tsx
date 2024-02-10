@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Page() {
   return (
-    <main className="overflow-hidden">
+    <main className="bg-beige_bg w-screen h-screen" >
       <WelcomePage />
     </main>
   );
