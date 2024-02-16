@@ -1,12 +1,26 @@
 "use client";
 
-import Image from "next/image";
-import React from "react";
+import React, { Suspense, lazy, useState } from "react";
 import { Navbar } from "..";
 import Link from "next/link";
 
 const WelcomePage = () => {
 
+  // const LoadingMainPage = lazy(() => new Promise<{ default: React.FC }>((resolve) => {
+  //   setTimeout(() => {
+  //     resolve(import("../../app/about/loadingScreenNaja"));
+  //   }, );
+  // }));
+
+  const [loading, setLoading] = useState(false);
+
+  const handleClick = () => {
+      setLoading(true);
+      setTimeout(() => {
+          // ให้เปลี่ยนไปหน้าใหม่ที่ต้องการ
+          window.location.href = '/home';
+      }, 4000);
+  };
   return (
     <div className="absolute justify-center bg-dog-bg bg-cover bg-no-repeat w-screen h-screen overflow-x-hidden">
       <Navbar />
@@ -18,17 +32,22 @@ const WelcomePage = () => {
           </div>
         </div>
       </div>
+
       <div className="flex justify-center relative top-[35px] md:top-[15px] xl:top-[5px]">
         <div className="flex justify-center items-center w-[120px] h-[45px] md-phone:w-[150px] 2xl:w-[184px] 2xl:h-[61px] 2xl:gap-[10px] flex-shrink-0 rounded-[50px] cursor-pointer text-gray-800 bg-blue-300 hover:bg-blue-400 ">
-          <Link href='/home' className="">
-            <div className="">Get Started
-            </div>
+          <Link href='/home'>
+          <div className="" onClick={handleClick}>
+                    <div className="">
+                        {loading ? 'Loading...' : 'Get Started'}
+                    </div>
+                </div>
+            {/* <Suspense fallback={<div>Loading . . .</div>}>
+                <div>Get started</div>
+            </Suspense> */}
           </Link>
         </div>
       </div>
     </div>
-
-
   )
 };
 
