@@ -1,29 +1,34 @@
-"use client";
+"use client"
+import React, { useState, Suspense, lazy } from 'react';
 
-import React, { useState } from 'react';
-import Link from 'next/link';
+// Lazy-loaded component
+const LazyLoadedUI = lazy(() => new Promise<{ default: React.FC }>((resolve) => {
+    setTimeout(() => {
+        resolve(import('../../components/home/home'));
+    }, 4000);
+},
+));
 
 export default function Page() {
-    const [loading, setLoading] = useState(false);
-
-    const handleClick = () => {
-        setLoading(true);
-        setTimeout(() => {
-            // ให้เปลี่ยนไปหน้าใหม่ที่ต้องการ
-            window.location.href = '/home';
-        }, 4000);
-    };
+    // State to track if UI should be loaded
+    const [showUI, setShowUI] = useState(false);
+    const toggleUI = () => {
+            setShowUI(!showUI);
+    }
+    setTimeout(() => {})
 
     return (
         <div>
-            {/* ใช้ Link เพื่อเปลี่ยนไปหน้าใหม่ */}
-            <Link href="/home">
-                <div className="" onClick={handleClick}>
-                    <div className="">
-                        {loading ? 'Loading...' : 'Get Started'}
-                    </div>
-                </div>
-            </Link>
+            {/* Button to toggle UI visibility */}
+            {/* <button onClick={toggleUI}>
+                {showUI ? 'Loading . . .': 'Get Started'}
+            </button> */}
+
+            {/* Suspense to handle lazy loading */}
+            <Suspense fallback>
+                {/* Render UI if showUI is true */}
+                {<LazyLoadedUI />}
+            </Suspense>
         </div>
     );
 }

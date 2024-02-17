@@ -40,7 +40,7 @@ const home = () => {
 
     ];
     return (
-        <div className="w-screen h-screen">
+        <div className=" bg-beige_bg w-screen h-screen">
             <Navbar />
             <div className="flex justify-center items-center relative top-[100px] md-phone:top-[150px] md:top-[150px] md:right-[10px] xl:top-[200px] xl:right-[50px] 2xl:top-[200px] 2xl:right-[125px]">
                 <div
