@@ -71,7 +71,7 @@ const home = () => {
                     ))}
                 </div>
             </div>
-            <div className="flex justify-center relative items-center min-h-10v top-[210px] md-phone:top-[300px] md:top-[400px] 2xl:top-[500px] gap-30px">
+            <div className="flex justify-center relative items-center min-h-10v top-[210px] md-phone:top-[300px] md:top-[400px] 3xl:top-[450px] gap-30px">
                 <div
                     className="relative w-60px h-60px border-[2px] border-solid border-white rounded-full flex justify-center items-center cursor-pointer active:bg-white before::content-none before::absolute before:w-[15px] before:h-[15px] before:top-[15px] before:right-[15px]  before:border-t-[3px] before:border-solid before:border-black before:border-r-[3px]  before:rotate-225"
                     style={{ transform: `translate(-2.5px, 2.5px)` } as React.CSSProperties}
