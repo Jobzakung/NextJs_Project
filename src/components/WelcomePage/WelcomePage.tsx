@@ -1,25 +1,18 @@
 "use client";
 
-import React, { Suspense, lazy, useState } from "react";
-import { Home, Navbar } from "..";
+import React, { Suspense, useState } from "react";
+import { Navbar } from "..";
 import Link from "next/link";
 
 const WelcomePage = () => {
-
-  const LoadingHome = lazy(() => new Promise<{ default: React.FC }>((resolve) => {
-    setTimeout(() => {
-      resolve(import('../../components/home/home'));
-    }, 4000);
-  },
-  ));
 
   const [loading, setShowUI] = useState(false);
   const toggleUI = () => {
     setShowUI(!loading);
   }
+  const OtherComponent = React.lazy(() => import('../home/home'));
 
   return (
-
     <div className="absolute justify-center bg-dog-bg bg-cover bg-no-repeat w-screen h-screen overflow-x-hidden">
       <Navbar />
       <div className="flex justify-center">
@@ -30,12 +23,13 @@ const WelcomePage = () => {
           </div>
         </div>
       </div>
-
       <div className="flex justify-center relative top-[35px] md:top-[15px] xl:top-[5px]">
         <div className="flex justify-center items-center w-[120px] h-[45px] md-phone:w-[150px] 2xl:w-[184px] 2xl:h-[61px] 2xl:gap-[10px] flex-shrink-0 rounded-[50px] cursor-pointer text-gray-800 bg-blue-300 hover:bg-blue-400 ">
           <Link href='/home' onClick={toggleUI}>
-            <div className="">
-                {loading ? 'Loading . . .' : 'Get Started'}
+            <div>
+              <Suspense fallback={<div>Loading . . .</div>}>
+                {loading ? <OtherComponent /> : 'Get Started'}
+              </Suspense>
             </div>
           </Link>
         </div>
