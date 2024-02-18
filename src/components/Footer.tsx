@@ -5,7 +5,7 @@ import React from "react";
 const Footer = () => (
 
 
-    <footer className="bg-white rounded-lg shadow m-4 dark:bg-gray-800 relative top-[100%] md-phone:top-[43%] lg-phone:top-[50%] md:top-[57%] xl:top-[53%] 2xl:top-[60%]">
+    <footer className="bg-white rounded-lg shadow m-4 dark:bg-gray-800 relative top-[100%] md-phone:top-[43%] lg-phone:top-[50%] md:top-[57%] lg:top-[53%] xl:top-[53%] 2xl:top-[55%]">
         <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
             <span className="flex justify-center items-center text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023
                 <a href="#"
