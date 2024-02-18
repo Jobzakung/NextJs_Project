@@ -8,10 +8,6 @@ const home = () => {
     const [degrees, setDegrees] = useState(0);
 
 
-    // const handleRotation = (angle: number) => {
-    //     setDegrees((prevDegrees) => prevDegrees + angle);
-    // };
-
     const handleRotationNext = (angle: number) => {
         // Check if rotation is allowed
         if ((degrees === 0 && angle < -35) || (degrees === -35 * (videos.length - 1) && angle > -105) || (degrees + angle < -105)) {
@@ -40,7 +36,7 @@ const home = () => {
 
     ];
     return (
-        <div className="w-screen h-screen">
+        <div className="  w-screen h-screen">
             <Navbar />
             <div className="flex justify-center items-center relative top-[100px] md-phone:top-[150px] md:top-[150px] md:right-[10px] xl:top-[200px] xl:right-[50px] 2xl:top-[200px] 2xl:right-[125px]">
                 <div
