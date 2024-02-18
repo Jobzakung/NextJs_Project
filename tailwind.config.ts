@@ -13,6 +13,7 @@ const config: Config = {
         'sm-phone': '320px',
         'md-phone': '375px',
         'lg-phone': '425px',
+        '3xl':'1920px',
       },
       rotate:{
         '30': '30deg',
