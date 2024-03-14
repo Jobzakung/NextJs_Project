@@ -1,0 +1,14 @@
+[
+    {
+        "id": 0,
+        "src": "/video/Vi1.mp4",
+        "poster": "/image/PosterVideo.png",
+        "title": "1"
+    },
+    {
+        "id": 1,
+        "src": "/video/Vi1.mp4",
+        "poster": "/image/PosterVideo.png",
+        "title": "2"
+    }
+]

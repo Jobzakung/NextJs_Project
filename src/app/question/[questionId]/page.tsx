@@ -1,5 +1,7 @@
 import React from 'react';
 import { Question1, Question2, Question3 } from "./question";
+import Error404 from '@/components/404error';
+import { Navbar } from '@/components';
 
 export default function Page({ params }: { params: { questionId: string } }) {
     let questionComponent;
@@ -15,14 +17,16 @@ export default function Page({ params }: { params: { questionId: string } }) {
             questionComponent = <Question3 />;
             break;
         default:
-            questionComponent = <div>Error 404 page not found</div>;
+            questionComponent = <Error404 />;
             break;
     }
 
     return (
-        <div className="">
+        <main className=' bg-beige_bg w-screen h-screen'>
+            {['1', '2', '3'].includes(params.questionId) && <Navbar />}
             {questionComponent}
-        </div>
+        </main>
+
     );
 }
 
@@ -31,7 +35,5 @@ export function generateStaticParams() {
         { questionId: '1' },
         { questionId: '2' },
         { questionId: '3' },
-        // Add more dynamic parameters as needed
     ];
-
 }
