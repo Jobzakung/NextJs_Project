@@ -1,6 +1,6 @@
-import React, { useRef, useEffect, useState } from 'react';
-import ModalComponent from '../components/modal';
-import data from '../data.json'; // Import data.json here
+import React, { useRef, useEffect, useState } from "react";
+import ModalComponent from "../components/modal";
+import data from "../data.json"; // Import data.json here
 
 interface VideoComponentProps {
     src: string;
@@ -14,67 +14,102 @@ interface Question {
     correct_answer: string;
 }
 
+interface Video {
+    id: number;
+    src: string;
+    poster: string;
+    questions: Question[];
+}
+
 const VideoComponent: React.FC<VideoComponentProps> = ({ src }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const [questions, setQuestions] = useState<Question[]>([]);
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
+    const [videos, setVideos] = useState<Video[]>([]);
+    const [currentVideoIndex, setCurrentVideoIndex] = useState<number>(0);
     const [showModal, setShowModal] = useState<boolean>(false);
     const [answered, setAnswered] = useState<boolean>(false);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
 
     useEffect(() => {
-        setQuestions(data.question1); // Set questions from data.json
+        setVideos(data);
     }, []);
 
     useEffect(() => {
         const video = videoRef.current;
-        if (!video || !questions.length || currentQuestionIndex >= questions.length) return;
-    
+        const currentVideo = videos[currentVideoIndex];
+        if (
+            !video ||
+            !currentVideo ||
+            !currentVideo.questions.length ||
+            currentQuestionIndex >= currentVideo.questions.length
+        )
+            return;
+
         const checkTimeAndShowModal = () => {
-            const currentQuestion = questions[currentQuestionIndex];
-            if (!currentQuestion || (video.currentTime >= currentQuestion.time && !answered)) {
+            const currentQuestion = currentVideo.questions[currentQuestionIndex];
+            if (
+                !currentQuestion ||
+                (video.currentTime >= currentQuestion.time && !answered)
+            ) {
                 setShowModal(true);
                 video.pause();
             }
         };
-    
+
         const interval = setInterval(checkTimeAndShowModal, 1000);
-    
+
         return () => clearInterval(interval);
-    }, [answered, currentQuestionIndex, questions]);
-    
+    }, [answered, currentQuestionIndex, videos, currentVideoIndex]);
 
     const handleVideoEnded = () => {
-        setShowModal(false); // Ensure modal is closed when video ends
+        setShowModal(false);
     };
 
     const handleSubmit = (answer: string) => {
-        const correctAnswer = questions[currentQuestionIndex].correct_answer;
+        const currentVideo = videos[currentVideoIndex];
+        const correctAnswer =
+            currentVideo.questions[currentQuestionIndex].correct_answer;
+        console.log(correctAnswer + " correctAnswer in video component");
         setShowModal(false);
-        const video = videoRef.current;
-
         if (answer === correctAnswer) {
+            console.log("correct answer : " + correctAnswer);
+            correctAnswer === null;
             setAnswered(true);
         } else {
             setAnswered(false);
         }
 
+        const video = videoRef.current;
         if (video) {
-            video.play();
+            // video.play();
         }
     };
 
     const handleNextQuestion = () => {
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setAnswered(false); // Reset answered state when moving to the next question
-        setSelectedOption(null); // Reset selected option when moving to the next question
+        const video = videoRef.current;
+        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+        setAnswered(false);
+        setSelectedOption(null);
+        if (video) {
+            video.play();
+        }
     };
-
-    const currentQuestion = questions[currentQuestionIndex];
-
+    const currentVideo = videos[currentVideoIndex];
+    const currentQuestion = currentVideo?.questions[currentQuestionIndex];
     return (
         <div>
-            <video ref={videoRef} controls src={src} onEnded={handleVideoEnded} />
+            {currentVideo ? (
+                <video
+                    className="absolute top-0 left-0 w-full h-full object-cover select-none rounded-lg transform-style-3d"
+                    ref={videoRef}
+                    controls
+                    src={currentVideo.src}
+                    poster={currentVideo.poster}
+                    onEnded={handleVideoEnded}
+                />
+            ) : (
+                <p>No video found.</p>
+            )}
             {currentQuestion && (
                 <ModalComponent
                     isOpen={showModal}

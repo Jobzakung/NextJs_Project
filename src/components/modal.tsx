@@ -27,6 +27,9 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
         if (selectedOption) {
             setShowResult(true);
             onSubmit(selectedOption);
+            if (selectedOption === correctAnswer) {
+                setShowResult(false);
+            }
         }
     };
 
@@ -34,7 +37,9 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
         setSelectedOption(null);
         setShowResult(false);
     };
-
+    console.log(correctAnswer + " correctAnswer")
+    console.log(selectedOption + " selectedOption")
+    console.log(showResult + " showResult")
     if (!isOpen) return null;
 
     return (
@@ -44,17 +49,6 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
                     className="absolute top-0 right-0 m-4 p-2 text-gray-600 hover:text-gray-900"
                     onClick={onClose}
                 >
-                    <svg
-                        className="w-6 h-6 fill-current"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                    >
-                        <path
-                            fillRule="evenodd"
-                            d="M10 9.293L5.293 4.586a1 1 0 00-1.414 1.414L8.586 10l-4.707 4.707a1 1 0 001.414 1.414L10 11.414l4.707 4.707a1 1 0 001.414-1.414L11.414 10l4.707-4.707a1 1 0 00-1.414-1.414L10 9.293z"
-                            clipRule="evenodd"
-                        />
-                    </svg>
                 </button>
                 <p className="text-xl font-semibold mb-4">{question}</p>
                 {options.map((option, index) => (

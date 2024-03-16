@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar";
 import './style.css'
 import { Footer } from "..";
-import videoData from '../../video.json';
-
+import videoData from "../../data.json";
+import VideoComponent from "../Video";
 interface Video {
     id: number;
     src: string;
@@ -49,22 +49,14 @@ const Home = () => {
                     className="flex justify-center items-center relative w-[150px] h-200px duration-1000 transform-style-3d"
                     style={{ transform: `perspective(1000px) rotateY(${degrees}deg)` }}
                 >
-                    {videos.map(video => (
+                    {videoData.map((video, index) => (
                         <div
                             className="absolute justify-center items-center top-0 left-0 h-full w-full md-phone:w-[135px] md:w-[185px] xl:w-[250px] 2xl:w-[320px] origin-center transform-style-3d overflow-hidden gap-30px video-container"
-                            key={video.id}
-                            style={{ '--i': video.id - 1 } as React.CSSProperties}
+                            key={index}
+                            style={{ '--i': index } as React.CSSProperties}
                         >
-                            <video
-                                className="absolute top-0 left-0 w-full h-full object-cover select-none rounded-lg transform-style-3d"
-                                controls preload="none"
-                                poster={video.poster}
-                                onClick={() => console.log(`This video id: ${video.id}`)}
-                                onError={(e) => console.error(`Error loading video ${video.src}`, e)}
-                            >
-                                <source src={video.src} type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
+                            <VideoComponent key={index} src={video.src} />
+
                         </div>
                     ))}
                 </div>
