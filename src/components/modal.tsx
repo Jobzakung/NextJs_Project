@@ -37,14 +37,14 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
         setSelectedOption(null);
         setShowResult(false);
     };
-    console.log(correctAnswer + " correctAnswer")
-    console.log(selectedOption + " selectedOption")
-    console.log(showResult + " showResult")
+    // console.log(correctAnswer + " correctAnswer")
+    // console.log(selectedOption + " selectedOption")
+    // console.log(showResult + " showResult")
     if (!isOpen) return null;
-
+ ////inset-0
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white rounded-lg p-8 max-w-lg">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 "> 
+            <div className="bg-white rounded-lg p-[100px] max-w-lg">
                 <button
                     className="absolute top-0 right-0 m-4 p-2 text-gray-600 hover:text-gray-900"
                     onClick={onClose}

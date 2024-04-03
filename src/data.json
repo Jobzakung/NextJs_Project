@@ -3,63 +3,100 @@
         "id": 0,
         "src": "/video/Vi1.mp4",
         "poster": "/image/PosterVideo.png",
-        "title": "1",
+        "title": "Movie 1",
         "questions": [
             {
                 "id": "q1",
                 "question": "Question 1",
-                "options": ["Option 1", "Option 2", "Option 3"],
+                "options": [
+                    "Option 1",
+                    "Option 2",
+                    "Option 3",
+                    "Option 4"
+                ],
                 "time": 10,
                 "correct_answer": "Option 2"
             },
             {
                 "id": "q2",
                 "question": "Question 2",
-                "options": ["Option A", "Option B", "Option C"],
+                "options": [
+                    "Option 1",
+                    "Option 2",
+                    "Option 3",
+                    "Option 4"
+                ],
                 "time": 20,
-                "correct_answer": "Option B"
+                "correct_answer": "Option 3"
             },
             {
                 "id": "q3",
                 "question": "Question 3",
-                "options": ["Option A", "Option B", "Option C"],
-                "time": 120,
-                "correct_answer": "Option B"
+                "options": [
+                    "Option 1",
+                    "Option 2",
+                    "Option 3",
+                    "Option 4"
+                ],
+                "time": 30,
+                "correct_answer": "Option 4"
+            },
+            {
+                "id": "q4",
+                "question": "Question 4",
+                "options": [
+                    "Option 1",
+                    "Option 2",
+                    "Option 3",
+                    "Option 4"
+                ],
+                "time": 40,
+                "correct_answer": "Option 1"
             }
-            
         ]
     },
     {
         "id": 1,
-        "src": "/video/Vi1.mp4",
+        "src": "/video/testing.mp4",
         "poster": "/image/PosterVideo.png",
-        "title": "1",
+        "title": "Movie 2",
         "questions": [
             {
                 "id": "q1",
                 "question": "Question 1",
-                "options": ["Option 1", "Option 2", "Option 3"],
-                "time": 10,
+                "options": [
+                    "Option 1",
+                    "Option 2",
+                    "Option 3",
+                    "Option 4"
+                ],
+                "time": 1,
                 "correct_answer": "Option 2"
             },
             {
                 "id": "q2",
                 "question": "Question 2",
-                "options": ["Option A", "Option B", "Option C"],
+                "options": [
+                    "Option 1",
+                    "Option 2",
+                    "Option 3",
+                    "Option 4"
+                ],
                 "time": 20,
-                "correct_answer": "Option B"
+                "correct_answer": "Option 3"
             },
             {
                 "id": "q3",
                 "question": "Question 3",
-                "options": ["Option A", "Option B", "Option C"],
+                "options": [
+                    "Option 1",
+                    "Option 2",
+                    "Option 3",
+                    "Option 4"
+                ],
                 "time": 120,
-                "correct_answer": "Option B"
+                "correct_answer": "Option 4"
             }
-            
         ]
     }
-    
-
-    
 ]

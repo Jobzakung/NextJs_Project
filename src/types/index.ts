@@ -17,3 +17,10 @@ export interface Question {
     options: string[];
     correct_answer: string;
 }
+
+interface Video {
+    id: number;
+    src: string;
+    poster: string;
+    title: string;
+}
