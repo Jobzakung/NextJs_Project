@@ -1,97 +1,90 @@
 "use client";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import Navbar from "../Navbar";
-import './style.css'
 import { Footer } from "..";
+import videoData from "../../data.json";
+import VideoComponent from "../Video";
 
-const home = () => {
-    const [degrees, setDegrees] = useState(0);
+const Home = () => {
+    const [videos, setVideos] = useState(videoData);
+    const [showButtons, setShowButtons] = useState<boolean>(true);
+    const [slideIndex, setSlideIndex] = useState(0);
 
-
-    const handleRotationNext = (angle: number) => {
-        // Check if rotation is allowed
-        if ((degrees === 0 && angle < -35) || (degrees === -35 * (videos.length - 1) && angle > -105) || (degrees + angle < -105)) {
-            return;
-        }
-        setDegrees((prevDegrees) => prevDegrees + angle);
-
-
-    };
-    const handleRotationPrev = (angle: number) => {
-        // Check if rotation is allowed
-        if ((degrees === 0 && angle < -35) || (degrees === -35 * (videos.length - 1) && angle < 35) || (degrees + angle > 35)) {
-            return;
-        }
-        setDegrees((prevDegrees) => prevDegrees + angle);
+    const plusSlides = (n: number) => {
+        showSlides(slideIndex + n);
     };
 
+    const currentSlide = (n: number) => {
+        showSlides(n);
+    };
 
-    const videos = [
-        { id: 0, src: "/video/Vi1.mp4", poster: "/image/PosterVideo.png", title: "1" },
-        { id: 1, src: "/video/Vi1.mp4", poster: "/image/PosterVideo.png", title: "2" },
-        { id: 2, src: "/video/testing.mp4", poster: "/image/PosterVideo.png", title: "3" },
-        { id: 3, src: "/video/testing.mp4", poster: "/image/PosterVideo.png", title: "4" },
-        { id: 4, src: "/video/Vi1.mp4", poster: "/image/PosterVideo.png", title: "5" },
+    const showSlides = (n: number) => {
+        let newIndex = n;
+        const slidesLength = videoData.length;
+        if (n >= slidesLength) {
+            newIndex = 0;
+        } else if (n < 0) {
+            newIndex = slidesLength - 1;
+        }
+        setSlideIndex(newIndex);
+    };
 
+    const handleVideoPlay = () => {
+        setShowButtons(false); // hide buttons
+    };
 
-    ];
+    const handleNoQuestions = () => {
+        setShowButtons(true); // show buttons
+    };
+    // console.log(showButtons + " setShowButtons")
+    // console.log(slideIndex + " slideIndex");
+    // console.log(showButtons + " setShowButtons");
     return (
-        <div className="  w-screen h-screen">
+        <div className="w-screen h-screen">
             <Navbar />
-            <div className="flex justify-center items-center relative top-[100px] md-phone:top-[150px] md:top-[150px] md:right-[10px] xl:top-[200px] xl:right-[50px] 2xl:top-[200px] 2xl:right-[125px]">
-                <div
-                    className="flex justify-center items-center relative w-[150px] h-200px duration-1000 transform-style-3d"
-                    style={{ transform: `perspective(1000px) rotateY(${degrees}deg)` } as React.CSSProperties}
-                //perspective คือ ระยะห่างของการเลี้ยว
-                >
-                    {videos.map((video) => (
+            <Suspense fallback>
+            <div className=" flex justify-center items-center relative top-[5%]">
+                <div>
+                    {videoData.map((video, index) => (
                         <div
-                            className="absolute justify-center items-center top-0 left-0 h-full w-full md-phone:w-[135px] md:w-[185px] xl:w-[250px] 2xl:w-[320px] origin-center transform-style-3d overflow-hidden gap-30px video-container"
-                            key={video.id}
-                            style={{
-                                '--i': video.id - 1,
-                                // marginLeft: `calc(var(--i) * 20px)` // คือการเพิ่มระยะห่างของวิดีโอ
-                            } as React.CSSProperties}
+                            key={index}
+                            style={{ display: index === slideIndex ? "block" : "none" }}
                         >
-                            <video
-                                className="absolute top-0 left-0 w-full h-full object-cover select-none rounded-lg transform-style-3d"
-                                controls preload="none"
+                            <VideoComponent
+                                src={video.src}
                                 poster={video.poster}
-                                onClick={() => console.log(`This video id: ${video.id}`)}
-                                onError={(e) => console.error(`Error loading video ${video.src}`, e)}
-
-                            >
-                                <source src={video.src} type="video/mp4" />
-                                Your browser does not support the video tag.
-
-                            </video>
-                            {/* <p className="absolute bottom-2 left-0 w-full text-center text-white">{video.title}</p> */}
-
+                                questions={video.questions}
+                                onPlay={handleVideoPlay}
+                                onNoQuestions={handleNoQuestions}
+                                setShowButtons={setShowButtons}
+                            />
                         </div>
                     ))}
                 </div>
             </div>
-            <div className="flex justify-center relative items-center min-h-10v top-[210px] md-phone:top-[300px] md:top-[400px] 3xl:top-[450px] gap-30px">
-                <div
-                    className="relative w-60px h-60px border-[2px] border-solid border-white rounded-full flex justify-center items-center cursor-pointer active:bg-white before::content-none before::absolute before:w-[15px] before:h-[15px] before:top-[15px] before:right-[15px]  before:border-t-[3px] before:border-solid before:border-black before:border-r-[3px]  before:rotate-225"
-                    style={{ transform: `translate(-2.5px, 2.5px)` } as React.CSSProperties}
-                    onClick={() => { handleRotationPrev(35); console.log("Prev Degrees: ", degrees); }}
-                >
-                </div>
-                <div
-                    className="relative w-[60px] h-[60px] border-[2px] border-solid border-white rounded-full flex justify-center items-center cursor-pointer active:bg-white before::content-none before::absolute before:w-[15px] before:h-[15px] before:top-[15px] before:right-[15px] before:border-t-[3px] before:border-solid before:border-black before:border-r-[3px] before:rotate-45"
-                    style={{ transform: `translate(-2.5px, 2.5px)` } as React.CSSProperties}
-                    onClick={() => { handleRotationNext(-35); console.log("Next Degrees: ", degrees); }}
+            </Suspense>
 
-                >
+            {showButtons && (
+                <div className="flex justify-center relative items-center min-h-10v top-[15%] xl:top-[10%] 3xl:top-[8%] gap-30px">
+                    <div
+                        className="relative w-60px h-60px border-[2px] border-solid border-slate-900 rounded-full flex justify-center items-center cursor-pointer active:bg-slate-300 before::content-none before::absolute before:w-[15px] before:h-[15px] before:top-[15px] before:right-[15px] before:border-t-[3px] before:border-solid before:border-black before:border-r-[3px] before:rotate-225"
+                        // style={{ transform: `translate(-2.5px, 2.5px)` }}
+                        onClick={() => {
+                            plusSlides(-1);
+                        }}
+                    ></div>
+                    <div
+                        className="relative w-[60px] h-[60px] border-[2px] border-solid border-slate-900 rounded-full flex justify-center items-center cursor-pointer active:bg-slate-300 before::content-none before::absolute before:w-[15px] before:h-[15px] before:top-[15px] before:right-[15px] before:border-t-[3px] before:border-solid before:border-black before:border-r-[3px] before:rotate-45"
+                        // style={{ transform: `translate(-2.5px, 2.5px)` }}
+                        onClick={() => {
+                            plusSlides(1);
+                        }}
+                    ></div>
                 </div>
-            </div>
-            <Footer />
+            )}
+            {/* <Footer /> */}
         </div>
-
     );
 };
 
-export default home;
-
-
+export default Home;
