@@ -44,7 +44,7 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
  ////inset-0
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 "> 
-            <div className="bg-white rounded-lg p-[100px] max-w-lg">
+            <div className="bg-white rounded-lg p-[85px] max-w-screen-sm-phone md:max-w-2xl">
                 <button
                     className="absolute top-0 right-0 m-4 p-2 text-gray-600 hover:text-gray-900"
                     onClick={onClose}
@@ -52,7 +52,7 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
                 </button>
                 <p className="text-xl font-semibold mb-4">{question}</p>
                 {options.map((option, index) => (
-                    <label key={index} className="flex items-center mb-2">
+                    <label key={index} className=" flex items-center mb-2">
                         <input
                             type="radio"
                             value={option}
@@ -69,23 +69,23 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
                         className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4"
                         disabled={!selectedOption}
                     >
-                        Submit
+                        ตอบ
                     </button>
                 ) : (
                     <div className="mt-4">
                         {selectedOption === correctAnswer ? (
-                            <p className="text-green-600">Correct!</p>
+                            <p className="text-green-600">ถูกต้อง!</p>
                         ) : (
                             <div>
-                                <p className="text-red-600">Wrong choice!</p>
-                                <p className="text-gray-600">The correct answer is: {correctAnswer}</p>
+                                <p className="text-red-600">คำตอบผิด !</p>
+                                <p className="text-gray-600">คำตอบที่ถูกต้อง : {correctAnswer}</p>
                             </div>
                         )}
                         <button
                             onClick={handleTryAgain}
                             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4"
                         >
-                            Try Again
+                            ลองอีกครั้ง
                         </button>
                     </div>
                 )}

@@ -134,7 +134,7 @@ const VideoComponent: React.FC<VideoComponentProps> = ({
         }
     };
 
-    const Text = "Next";
+    const Text = "ถัดไป";
     const currentQuestion = questions[currentQuestionIndex];
 
     // console.log(currentQuestionIndex + " currentQuestionIndex");
@@ -165,7 +165,7 @@ const VideoComponent: React.FC<VideoComponentProps> = ({
                 {answered && (
                     <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-75 text-white">
                         <div className="text-center">
-                            <p className="text-xl font-semibold">Next Question</p>
+                            <p className="text-xl font-semibold">คำถามต่อไป</p>
                             <button
                                 onClick={handleNextQuestion}
                                 className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4"
