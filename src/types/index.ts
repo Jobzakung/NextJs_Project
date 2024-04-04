@@ -10,3 +10,17 @@ export interface CustomButtonProps {
     style?: string;
     alt?: string;
 }
+
+export interface Question {
+    id: string;
+    question?: string;
+    options: string[];
+    correct_answer: string;
+}
+
+interface Video {
+    id: number;
+    src: string;
+    poster: string;
+    title: string;
+}
