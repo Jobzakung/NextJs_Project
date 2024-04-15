@@ -22,7 +22,7 @@ const SelectPage = () => {
             router.push('/selectPage/2', { scroll: false })
         }
         else {
-            alert('Please select a user type.');
+            alert('โปรดเลือกวิดีโอ.');
         }
     };
     console.log(selectedOption);
