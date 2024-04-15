@@ -21,7 +21,7 @@ export default function Page({ params }: { params: { selectId: string } }) {
     }
 
     return (
-        <main className=' bg-beige_bg w-screen h-screen'>
+        <main className=' bg-beige_bg w-screen h-screen overflow-y-hidden overflow-x-hidden'>
             {['1', '2'].includes(params.selectId) && <Navbar />}
             {videos}
         </main>
