@@ -3,8 +3,7 @@
 import React, { Suspense, useState } from "react";
 import { Navbar } from "..";
 import Link from "next/link";
-import Image from "next/image";
-import dogRat from "../../../public/image/ratAnddog.svg";
+
 
 const WelcomePage = () => {
   const [loading, setShowUI] = useState(false);
@@ -30,8 +29,8 @@ const WelcomePage = () => {
         <div className="flex justify-center items-center w-[120px] h-[45px] md-phone:w-[150px] 2xl:w-[184px] 2xl:h-[61px] 2xl:gap-[10px] flex-shrink-0 rounded-[50px] cursor-pointer text-gray-800 bg-blue-300 hover:bg-blue-400 ">
           <Link href="/selectPage" onClick={toggleUI}>
             <div>
-              <Suspense fallback={<div>Loading . . .</div>}>
-                {loading ? <OtherComponent /> : "Get Started"}
+              <Suspense fallback={<div>กำลังโหลด . . .</div>}>
+                {loading ? <OtherComponent /> : "เริ่มต้น"}
               </Suspense>
             </div>
           </Link>

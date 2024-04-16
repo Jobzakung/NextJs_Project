@@ -35,6 +35,17 @@ const Navbar = () => {
                     />
                 </Link>
             </div>
+            <div className="w-[75px] h-[60px] relative left-16">
+                <Link href='/' className="">
+                    <Image
+                        src="/image/kmutnb.svg"
+                        alt="logo"
+                        width={110}
+                        height={110}
+                        className='object-contain '
+                    />
+                </Link>
+            </div>
 
         </div>
     )
