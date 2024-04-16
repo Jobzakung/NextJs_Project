@@ -92,7 +92,7 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'dog-bg': "url('/image/Dog.svg')",
-        'dog-rat':"url('/image/ratAnddog.svg')",
+        'dog-rat':"url('/image/Desktop.svg')",
       },
       colors:{
         'beige_bg': '#F5EEE6',
