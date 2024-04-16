@@ -12,18 +12,24 @@ const SelectPage = () => {
 
     const selectUserType = (type: string) => {
         setSelectedOption(type);
-    };
-    const submitSelection = () => {
-        if (selectedOption == "dog") {
+        if(selectedOption == "dog"){
             router.push('/selectPage/1', { scroll: false })
-
         }
-        else if(selectedOption == "rat") {
+        else if(selectedOption == "rat"){
             router.push('/selectPage/2', { scroll: false })
         }
-        else {
-            alert('โปรดเลือกวิดีโอ.');
-        }
+    };
+    const submitSelection = () => {
+        // if (selectedOption == "dog") {
+        //     router.push('/selectPage/1', { scroll: false })
+
+        // }
+        // else if(selectedOption == "rat") {
+        //     router.push('/selectPage/2', { scroll: false })
+        // }
+        // else {
+        //     alert('โปรดเลือกวิดีโอ.');
+        // }
     };
     console.log(selectedOption);
     return (
@@ -47,7 +53,7 @@ const SelectPage = () => {
                     <div className="option-text text-lg text-gray-700">โรคพิษสุนัขบ้า</div>
                 </div>
             </div>
-            <button
+            {/* <button
                 className="button2 mt-6 mr-4 px-4 py-2 text-lg bg-green-500 text-white rounded-md transition duration-300 hover:bg-green-600"
                 onClick={() => { router.push('/');}}
             >
@@ -58,7 +64,7 @@ const SelectPage = () => {
                 onClick={submitSelection}
             >
                 ตกลง
-            </button>
+            </button> */}
         </div>
         </div>
     );
