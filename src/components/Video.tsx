@@ -143,7 +143,8 @@ const VideoComponent: React.FC<VideoComponentProps> = ({
             <div className="flex justify-center items-center relative w-[340px] sm:w-[768px] xl:w-[1000px] 3xl:w-[1440px]">
                 <video
                     className=" h-[240px] sm:h-[480px] xl:h-[600px] 3xl:h-[820px] w-[340px] sm:w-[768px] xl:w-[1100px] 3xl:w-[1440px]"
-                    ref={videoRef}
+                    autoPlay
+                    ref={videoRef}  
                     controls
                     src={src}
                     poster={poster}

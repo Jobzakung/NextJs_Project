@@ -1,9 +1,9 @@
 "use client";
 
-import React, { Suspense, useState } from "react";
-import { Navbar } from "..";
+import React, { useState } from "react";
+import { Footer, Navbar } from "..";
 import Link from "next/link";
-
+import Image from "next/image";
 
 const WelcomePage = () => {
   const [loading, setShowUI] = useState(false);
@@ -13,30 +13,36 @@ const WelcomePage = () => {
   const OtherComponent = React.lazy(() => import("../home/home"));
 
   return (
-    <div className="absolute justify-center bg-cover bg-no-repeat w-screen h-screen overflow-x-hidden bg-center bg-dog-rat ">
+    <div className="absolute justify-center w-screen h-screen overflow-x-hidden">
       <Navbar />
-      <div className="flex justify-center">
-        <div className="flex justify-center items-center w-[400px] h-[120px] md-phone:h-[240px] md:h-[300px] xl:h-[250px] 2xl:w-[512px] 2xl:h-[283px] flex-shrink-0">
-          <div className="relative font-Arapey text-[100px] md-phone:text-[150px] not-italic font-light 2xl:text-[220px]">
-            R & L
-            <div className="flex justify-center relative bottom-[30px] 2xl:bottom-[70px] text-[20px] md-phone:text-[30px] md-phone:bottom-[55px] 2xl:text-[36px] font-normal font-Alegreya-Sans-SC">
-              Rabies And Leptospirosis{" "}
-            </div>
-          </div>
+      <div className=" bg-neutral-200 w-screen h-[770px] overflow-x-hidden relative overflow-y-hidden">
+        <Image
+          src="/image/Mad_dog-removebg.svg"
+          width={1144}
+          height={770}
+          alt="Mad dog"
+          className=" absolute object-cover"
+        />
+        <Image
+          src="/image/purepng.png"
+          alt="Rat"
+          width={503}
+          height={470}
+          className=" absolute left-[1417px] top-[300px] object-contain"
+        />
+        <div className="absolute left-[60%] top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center">
+          <p className="text-[48px] ">Multimedia Rabies and Leptospirosis</p>
+          <p className="text-[40px] ">
+            สื่อมัลติมีเดีย​ โรคพิษสุนัข​บ้า​และโรคฉี่หนู
+          </p>
+          <button className="  relative top-[32px] text-[24px] rounded-[50px] w-[190px] h-[65px] bg-blue-300 hover:bg-blue-400">
+            <Link href="/selectPage" className=" ">
+              เริ่มต้น
+            </Link>
+          </button>
         </div>
       </div>
-      <div className="flex justify-center relative top-[35px] md:top-[15px] xl:top-[5px]">
-        <div className="flex justify-center items-center w-[120px] h-[45px] md-phone:w-[150px] 2xl:w-[184px] 2xl:h-[61px] 2xl:gap-[10px] flex-shrink-0 rounded-[50px] cursor-pointer text-gray-800 bg-blue-300 hover:bg-blue-400 ">
-          <Link href="/selectPage" onClick={toggleUI}>
-            <div>
-              <Suspense fallback={<div>กำลังโหลด . . .</div>}>
-                {loading ? <OtherComponent /> : "เริ่มต้น"}
-              </Suspense>
-            </div>
-          </Link>
-          
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 };

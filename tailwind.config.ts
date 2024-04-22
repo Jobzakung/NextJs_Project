@@ -83,18 +83,16 @@ const config: Config = {
         "100px" : "100px",
       },
       fontFamily: {
-        'kanit': ['kanit', 'sans-serif'],
-        'Arapey': ['Arapey', 'sans-serif'],
-        'inter': ['inter', 'sans-serif'],
-        'Alegreya-Sans-SC': ['Alegreya Sans SC', 'sans-serif']
+        // 'inter': ['inter', 'sans-serif'],
       },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'dog-bg': "url('/image/Dog.svg')",
-        'dog-rat':"url('/image/Desktop.svg')",
+        // 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        // 'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        // 'dog-bg': "url('/image/Dog.svg')",
+        // 'dog-rat':"url('/image/Desktop.svg')",
       },
       colors:{
+        'grey': '#F1F1F1',
         'beige_bg': '#F5EEE6',
         'blue_button':'86B6F6'
       }

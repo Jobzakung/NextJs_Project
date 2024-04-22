@@ -3,7 +3,7 @@ import { WelcomePage } from "@/components";
 export default function Page() {
 
   return (
-    <main className="bg-beige_bg w-screen h-screen" >
+    <main className="w-screen h-screen overflow-y-hidden overflow-x-hidden" >
       <WelcomePage />
     </main>
   );
