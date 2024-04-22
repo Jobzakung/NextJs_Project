@@ -37,7 +37,7 @@ const SelectPage = () => {
     //         alert('โปรดเลือกวิดีโอ.');
     //     }
     // };
-    console.log(selectedOption);
+    // console.log(selectedOption);
     return (
         <div>
             <Navbar />
