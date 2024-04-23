@@ -7,21 +7,26 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: 
-    { 
-      screens:{
+    extend:
+    {
+      screens: {
         'sm-phone': '320px',
         'md-phone': '375px',
         'lg-phone': '425px',
-        '3xl':'1920px',
+        '3xl': '1920px',
+        // sm	640px	@media (min-width: 640px) { ... }
+        // md	768px	@media (min-width: 768px) { ... }
+        // lg	1024px	@media (min-width: 1024px) { ... }
+        // xl	1280px	@media (min-width: 1280px) { ... }
+        // 2xl	1536px	@media (min-width: 1536px) { ... }
       },
-      rotate:{
+      rotate: {
         '30': '30deg',
         '45': '45deg',
         '60': '60deg',
         '225': '225deg',
       },
-      width:{
+      width: {
         "100%": "100%",
         "165%": '165%',
         "15px": '15px',
@@ -46,7 +51,7 @@ const config: Config = {
         "90v": "90vh",
         "100v": "100vh",
       },
-      top:{
+      top: {
         "10px": "10px",
         "20px": "20px",
         "30px": "30px",
@@ -59,28 +64,28 @@ const config: Config = {
         "50%": "50%",
 
       },
-      left:{
+      left: {
         "700px": "700px",
 
       },
-      right:{
+      right: {
         "700px": "700px",
 
       },
-      bottom:{
+      bottom: {
         "700px": "700px",
       },
-      gap:{
-        "10px" : "10px",
-        "20px" : "20px",
-        "30px" : "30px",
-        "40px" : "40px",
-        "50px" : "50px",
-        "60px" : "60px",
-        "70px" : "70px",
-        "80px" : "80px",
-        "90px" : "90px",
-        "100px" : "100px",
+      gap: {
+        "10px": "10px",
+        "20px": "20px",
+        "30px": "30px",
+        "40px": "40px",
+        "50px": "50px",
+        "60px": "60px",
+        "70px": "70px",
+        "80px": "80px",
+        "90px": "90px",
+        "100px": "100px",
       },
       fontFamily: {
         // 'inter': ['inter', 'sans-serif'],
@@ -91,10 +96,10 @@ const config: Config = {
         // 'dog-bg': "url('/image/Dog.svg')",
         // 'dog-rat':"url('/image/Desktop.svg')",
       },
-      colors:{
+      colors: {
         'grey': '#F1F1F1',
         'beige_bg': '#F5EEE6',
-        'blue_button':'86B6F6'
+        'blue_button': '86B6F6'
       }
     },
   },
